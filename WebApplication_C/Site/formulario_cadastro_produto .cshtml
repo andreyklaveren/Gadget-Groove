@@ -16,33 +16,49 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <title>Meu primeiro CSHTML</title>
+  <title>Cadastrar Produtos</title>
 </head>
 <body>
   <nav>
     <h1>Gadget Groove</h1>
     <!--Sempre que precisar inserir códigos C# no meio do HTML é só inserir um "ARROBA"-->
     <div class="buscar">
-      <form action="#" method="get" class="search-form">
-        <input type="text" placeholder="Digite o nome do produto..." name="search" id="search" class="search-input">
-        <button type="submit" class="search-button">Buscar</button>
-      </form>
+        <form action="#" method="get" class="buscar-form">
+            <input type="text" placeholder="Digite o nome do produto..." name="search" id="search" class="buscar-input">
+            <button type="submit" class="buscar-button">Buscar</button>
+        </form>
     </div>
-    <div class="areaDeCadastro">
+    <div class="areaDeCadastros">
       <a href="~/Site/index.cshtml">Voltar para o inicio</a>
     </div>
 
   </nav>
-  <h2> Cadastrar Produto</h2>
+  <h2 class="subTitulo"> Cadastrar Produto</h2>
   <div>
-    <!-- O item enctype="multipart/form-data" é o que permite o envio de arquivos atraves do metodo POST -->
-    <form method="post" action="~/Site/cadastra_produto.cshtml" enctype="multipart/form-data">
-      <p>Nome: <input placeholder="Nome*" type="text" name="nome" required></p>
-      <p>Descriçao: <input type="text" name="descricao" required></p>
-      <p>Quantidade: <input type="number" name="quantidade"></p>
-      <p>Foto: <input type="file" name="foto" accept=".jpg"></p>
-      <input type="submit" value="Enviar">
-    </form>
+      <section class="padrao-form">
+          <form method="post" action="~/Site/cadastra_produto.cshtml">
+              <div>
+                  
+                  <input placeholder="Id do produto" type="number" name="id">
+                  <input placeholder="Nome do produto*" type="text" name="nome" />
+              </div>
+              <div>
+                  <input placeholder="Quantidade" type="number" name="quantidade">
+                  <input placeholder="Categoria" type="number" name="categoria">
+              </div>
+              <div>
+                  <input placeholder="Valor" type="number" name="valor" />
+                  <input placeholder="Peso" type="number" name="peso">
+              </div>
+              <div class="descricao">
+                  <input placeholder="Descrição" type="text" name="descricao">
+              </div>
+              <p class="obrigatorio">* Dados obrigatórios</p>
+              <div class="btn-inpt">
+                  <button class="btn-continuar" type="submit">Continuar</button>
+              </div>
+          </form>
+      </section>
   </div>
 </body>
 </html>
