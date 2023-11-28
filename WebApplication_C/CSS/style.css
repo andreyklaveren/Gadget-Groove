@@ -1,0 +1,89 @@
+﻿/*Zerando CSS*/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing:border-box;
+}
+
+body {
+  font-family: 'Inter';
+}
+
+/*Depois vai mudar para logo*/
+h1 {
+  color: white;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #0060B1;
+  padding: 20px 100px;
+  border-bottom: 2px solid #FF6500;
+}
+
+.areaDeCadastro {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: 10px;
+}
+
+  .areaDeCadastro a {
+    text-decoration: none;
+    color: #81B0D8;
+  }
+
+    .areaDeCadastro a:hover {
+      transition: 400ms;
+      color: #C4C4C4;
+    }
+
+.search-input {
+  padding: 8px;
+  border: none; /* Remove a borda */
+  border-radius: 4px;
+  font-size: 16px;
+  outline: none; /* Remove o contorno ao focar */
+}
+
+.search-button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+  .search-button:hover {
+    background-color: #0056b3;
+  }
+
+h2 {
+  color: #FF6500;
+  text-align:center;
+  text-transform: uppercase;
+  margin: 40px;
+}
+
+.usuario-form {
+  align-items: center;
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  margin-inline: 20%;
+}
+
+  .usuario-form input {
+    padding: 8px;
+    border: none; /* Remove a borda */
+    border-radius: 4px;
+    font-size: 16px;
+    outline: none; /* Remove o contorno ao focar */
+    margin: 10px;
+    border: 1px solid #7F858D
+  }

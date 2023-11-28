@@ -1,0 +1,65 @@
+﻿<!--Importar as Classes que serão utilizadas-->
+@using System.Net
+@using WebApplication_C.Classes
+
+<!--Códgo C# inicial-->
+@{
+    Layout = null;
+
+    //Criar um objeto Usuario
+    Usuario usuario = new Usuario();
+
+    //Buscar os dados do formulario pelo método POST e inserir no objeto Usuario
+    usuario.CPF = long.Parse(Request.Form["CPF"]);
+    usuario.Senha = Request.Form["senha"];
+    usuario.Nome = Request.Form["nome"];
+    usuario.Email = Request.Form["email"];
+
+
+    //inserir o usuário no banco de dados
+    DB.Insert_Usuario(usuario);
+
+    //Buscar um usuário do banco de dados
+    Usuario Encontrado = DB.Busca_Usuario(usuario.CPF);
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="~/CSS/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <title>Meu primeiro CSHTML</title>
+</head>
+<body>
+  <header>
+    <nav>
+      <h1>Gadget Groove</h1>
+      <!--Sempre que precisar inserir códigos C# no meio do HTML é só inserir um "ARROBA"-->
+      <div class="buscar">
+        <form action="#" method="get" class="search-form">
+          <input type="text" placeholder="Digite o nome do produto..." name="search" id="search" class="search-input">
+          <button type="submit" class="search-button">Buscar</button>
+        </form>
+      </div>
+      <div class="areaDeCadastro">
+        <a href="~/Site/formulario_cadastro_usuario.cshtml">Crie seu cadastro.</a>
+        <a href="~/Site/formulario_cadastro_produto .cshtml">Cadastre os produtos.</a>
+      </div>
+
+    </nav>
+  </header>
+  <div>
+
+    <!--Sempre que precisar inserir códigos C# no meio do HTML é só inserir um "ARROBA"-->
+    <h1>Bem vindo @Encontrado.Nome ! </h1>
+    <p>Seu e-mail de cadastro é: @Encontrado.Email.</p>
+    <p>Seu CPF é @Encontrado.CPF .</p>
+    <br>
+    <p><a href="~/Site/index.cshtml">Pagina Inicial</a> - <a href="~/Site/formulario_cadastro_usuario.cshtml">Novo Cadastro</a></p>
+  </div>
+</body>
+</html>
