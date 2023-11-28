@@ -116,7 +116,7 @@ div .btn-inpt {
         transition: 400ms;
     }
 /*Ajuste do input endereço (cadastro usuario) e descrição (cadastro de produto) */
-.endereco input, .descricao {
+.endereco input, .descricao input {
     width: 451px;
 }
 /*Legenda do cadastro*/
