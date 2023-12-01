@@ -1,8 +1,10 @@
 ﻿<!--Iniciando o arquivo CSHTML-->
-
+@using System.Net
+@using WebApplication_C.Classes
 <!--Logo abaixo um exemplo de bloco de código C# inserido no arquivo -->
 @{
-    Layout = null;
+  Layout = null;
+  Produto produto = new Produto();
 }
 
 <!DOCTYPE html>
@@ -33,5 +35,19 @@
       </div>
     </nav>
   </header>
+  <section class="gradeDeProdutos">
+    @{
+      List<Produto> produtos = DB.Lista_Produtos();
+    }
+    @foreach (Produto produto_lista in produtos)
+    {
+      <div class="produtos">
+        <img class="imgProduto" src="~/Site/img/@produto_lista.Imagem" />
+        <p class="nomeProduto">Produto: @produto_lista.Nome</p>
+        <p class="precoProduto">R$ @produto_lista.Valor</p>
+        <button class="btn-comprar">Comprar</button>
+      </div>
+    }
+  </section>
 </body>
 </html>

@@ -4,34 +4,40 @@
 
 <!--Códgo C# inicial-->
 @{
-    Layout = null;
+  Layout = null;
 
-    //Criar um objeto Produto
-    Produto produto = new Produto();
+  //Criar um objeto Produto
+  Produto produto = new Produto();
 
-    //Buscar os dados do formulario pelo método POST e inserir no objeto produto
-    produto.Nome = Request.Form["nome"];
-    produto.Descricao = Request.Form["descricao"];
-    produto.Quantidade = int.Parse(Request.Form["quantidade"]);
+  //Buscar os dados do formulario pelo método POST e inserir no objeto produto
+  produto.Id = int.Parse(Request.Form["id"]);
+  produto.Nome = Request.Form["nome"];
+  produto.Quantidade = int.Parse(Request.Form["quantidade"]);
+  produto.Categoria = int.Parse(Request.Form["categoria"]);
+  produto.Descricao = Request.Form["descricao"];
+  produto.Imagem = Request.Form["imagem"];
 
-    HttpFileCollectionBase uploadedFiles = Request.Files;
+  produto.Valor = int.Parse(Request.Form["valor"]);
 
-    for (int i = 0; i < uploadedFiles.Count; i++)
+
+  HttpFileCollectionBase uploadedFiles = Request.Files;
+
+  for (int i = 0; i < uploadedFiles.Count; i++)
+  {
+    HttpPostedFileBase userPostedFile = uploadedFiles[i];
+
+    if (userPostedFile.ContentLength > 0)
     {
-        HttpPostedFileBase userPostedFile = uploadedFiles[i];
+      // getting a valid server path to save
+      string filePath = System.IO.Path.Combine(Server.MapPath("img"), userPostedFile.FileName);
+      userPostedFile.SaveAs(filePath);
+      produto.Imagem = userPostedFile.FileName;
 
-        if (userPostedFile.ContentLength > 0)
-        {
-            // getting a valid server path to save
-            string filePath = System.IO.Path.Combine(Server.MapPath("img"), userPostedFile.FileName);
-            userPostedFile.SaveAs(filePath);
-            produto.Imagem = userPostedFile.FileName;
-
-        }
     }
+  }
 
-    //inserir o produto no banco de dados
-    DB.Insert_Produto(produto);
+  //inserir o produto no banco de dados
+  DB.Insert_Produto(produto);
 }
 
 <!DOCTYPE html>
@@ -65,7 +71,7 @@
     <!--Sempre que precisar inserir códigos C# no meio do HTML é só inserir um "ARROBA"-->
     <h1>O produto @produto.Nome foi cadastrado com sucesso! </h1>
     <p>Sua imagem é :</p>
-    <div><img src="~/Site/img/@produto.Imagem" width="100px" height="100px" /></div>
+    <div><img src="~/Site/img/@produto.Imagem" width="100" height="100" /></div>
     <br>
     <p>Os pridutos já cadastrados</p>
     @{

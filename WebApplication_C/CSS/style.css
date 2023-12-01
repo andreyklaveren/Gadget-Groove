@@ -17,10 +17,11 @@ h1 {
 nav {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   background-color: #0060B1;
   padding: 20px 100px;
   border-bottom: 2px solid #FF6500;
+
 }
 
 /* Input de busca dentro do 'nav' */
@@ -123,4 +124,60 @@ div .btn-inpt {
 .obrigatorio {
     margin-left: 10px;
     color: rgb(229, 7, 7, 0.65);
+}
+
+/*Parte que lista os produtos*/
+.gradeDeProdutos {
+  display: flex;
+  gap: 10px;
+  width: 72%;
+  margin:50px auto 0;
+  flex-wrap: wrap;
+}
+
+.produtos {
+  cursor: pointer;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  -webkit-box-shadow: 0px 0px 4px 3px rgba(191,191,191,1);
+  -moz-box-shadow: 0px 0px 4px 3px rgba(191,191,191,1);
+  box-shadow: 0px 0px 4px 3px rgba(191,191,191,1);
+}
+
+  .produtos:hover {
+    -webkit-box-shadow: 0px 0px 8px 8px rgba(191,191,191,1);
+    -moz-box-shadow: 0px 0px 8px 8px rgba(191,191,191,1);
+    box-shadow: 0px 0px 8px 8px rgba(191,191,191,1);
+    transition: 400ms;
+  }
+.imgProduto {
+  margin: 0 auto;
+  width: 175px;
+  height: 200px;
+}
+
+.precoProduto {
+  color:#FF6500; 
+  font-weight: 600;
+}
+
+.btn-comprar {
+  cursor: pointer;
+  border: none;
+  background-color: #FF6500;
+  padding: 10px 50px;
+  text-transform: uppercase;
+  border-radius: 0.25rem;
+  color: white;
+}
+  .btn-comprar:hover {
+    background-color: #FF8B1F;
+    transition: 400ms;  
+  }
+
+input[type='file'] {
+  width: 96%;
 }
