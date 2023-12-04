@@ -4,23 +4,24 @@
 
 <!--Códgo C# inicial-->
 @{
-    Layout = null;
+  Layout = null;
 
-    //Criar um objeto Usuario
-    Usuario usuario = new Usuario();
+  //Criar um objeto Usuario
+  Usuario usuario = new Usuario();
 
-    //Buscar os dados do formulario pelo método POST e inserir no objeto Usuario
-    usuario.CPF = long.Parse(Request.Form["CPF"]);
-    usuario.Senha = Request.Form["senha"];
-    usuario.Nome = Request.Form["nome"];
-    usuario.Email = Request.Form["email"];
+  //Buscar os dados do formulario pelo método POST e inserir no objeto Usuario
+  usuario.CPF = long.Parse(Request.Form["CPF"]);
+  usuario.Senha = Request.Form["senha"];
+  usuario.Nome = Request.Form["nome"];
+  usuario.Email = Request.Form["email"];
+  usuario.Admin = bool.Parse(Request.Form["admin"]);
 
 
-    //inserir o usuário no banco de dados
-    DB.Insert_Usuario(usuario);
+  //inserir o usuário no banco de dados
+  DB.Insert_Usuario(usuario);
 
-    //Buscar um usuário do banco de dados
-    Usuario Encontrado = DB.Busca_Usuario(usuario.CPF);
+  //Buscar um usuário do banco de dados
+  Usuario Encontrado = DB.Busca_Usuario(usuario.CPF);
 }
 
 <!DOCTYPE html>
@@ -52,12 +53,24 @@
 
     </nav>
   </header>
-  <div>
+  <div class="cadastroConcluido">
 
     <!--Sempre que precisar inserir códigos C# no meio do HTML é só inserir um "ARROBA"-->
-    <h1>Bem vindo @Encontrado.Nome ! </h1>
-    <p>Seu e-mail de cadastro é: @Encontrado.Email.</p>
+    <h1>Bem vindo @Encontrado.Nome , abaixo seu dados! </h1>
+    <p>Seu e-mail de cadastro é: @Encontrado.Email .</p>
     <p>Seu CPF é @Encontrado.CPF .</p>
+    <p>Seu genero é @Encontrado.Genero .</p>
+    <p>Seu endereço é: CEP:@Encontrado.CEP , Rua:@Encontrado.EnderecoRua , Nº:@Encontrado.EnderecoNumero ,Complemento:@Encontrado.EnderecoComplemento .</p>
+    <p>Seu telefone é: @Encontrado.Telefone </p>
+    @if (Encontrado.Admin == false)
+    {
+      <p>Você é admin</p>
+    }
+    else
+    {
+      <p>Você não é admin</p>
+    }
+
     <br>
     <p><a href="~/Site/index.cshtml">Pagina Inicial</a> - <a href="~/Site/formulario_cadastro_usuario.cshtml">Novo Cadastro</a></p>
   </div>

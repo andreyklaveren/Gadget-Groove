@@ -36,31 +36,35 @@
   <h2 class="subTitulo"> Cadastrar Produto</h2>
   <div>
       <section class="padrao-form">
-          <form method="post" action="~/Site/cadastra_produto.cshtml">
-              <div>
-                  
-                  <input placeholder="Id do produto" type="number" name="id">
-                  <input placeholder="Nome do produto*" type="text" name="nome" />
-              </div>
-              <div>
-                  <input placeholder="Quantidade" type="number" name="quantidade">
-                  <input placeholder="Categoria" type="number" name="categoria">
-              </div>
-              <div>
-                  <input placeholder="Valor" type="number" name="valor" />
-                  <input placeholder="Peso" type="number" name="peso">
-              </div>
-              <div class="descricao">
-                  <input placeholder="Descrição" type="text" name="descricao">
-              </div>
-              <div>
-                <input id='selecao-arquivo' type='file' name="imagem">
-              </div>
-              <p class="obrigatorio">* Dados obrigatórios</p>
-              <div class="btn-inpt">
-                  <button class="btn-continuar" type="submit">Continuar</button>
-              </div>
-          </form>
+        <form method="post" action="~/Site/cadastra_produto.cshtml">
+          <div>
+
+            <input placeholder="Id do produto" type="number" name="id">
+            <input placeholder="Nome do produto*" type="text" name="nome" />
+          </div>
+          <div>
+            <input placeholder="Quantidade*" type="number" name="quantidade">
+            <input placeholder="Categoria*" type="number" name="categoria">
+          </div>
+          <div>
+            <input placeholder="Valor*" type="number" name="valor" />
+            <input placeholder="Peso" type="number" name="peso">
+          </div>
+          <div class="descricao">
+            <input placeholder="Descrição" type="text" name="descricao">
+          </div>
+          <div>
+            <input id='selecao-arquivo' type='file' name="imagem">
+          </div>
+          <div>
+            <input placeholder="Largura" type="number" name="largura" />
+            <input placeholder="Altura" type="number" name="altura">
+          </div>
+          <p class="obrigatorio">* Dados obrigatórios</p>
+          <div class="btn-inpt">
+            <button class="btn-continuar" type="submit">Continuar</button>
+          </div>
+        </form>
       </section>
   </div>
 </body>

@@ -37,29 +37,34 @@
           <form method="post" action="~/Site/cadastra_usuario.cshtml">
 
               <div>
-                  <input placeholder="Nome*" type="text" name="nome" />
-                  <input placeholder="Sobrenome*" type="text" name="sobrenome">
+                  <input placeholder="Nome" type="text" name="nome" />
+                  <input placeholder="Sobrenome" type="text" name="sobrenome">
               </div>
               <div>
                   <input placeholder="CPF*" type="text" name="CPF" required>
                   <input placeholder="Senha*" type="password" name="senha"  required>
               </div>
               <div>
-                  <input placeholder="Email*" type="email" name="email" />
-                  <input placeholder="Genero*" type="text" name="genero">
+                  <input placeholder="Email" type="email" name="email" />
+                  <input placeholder="Genero" type="text" name="genero">
               </div>
               <div class="endereco">
-                  <input  placeholder="Rua*" type="text" name="enderecoRua">
+                  <input  placeholder="Rua" type="text" name="enderecoRua">
                   
               </div>
               <div>
-                  <input placeholder="Numero*" type="number" name="enderecoNumero">
-                  <input placeholder="Complemento*" type="text" name="enderecoComplemento" />
+                  <input placeholder="Numero" type="number" name="enderecoNumero">
+                  <input placeholder="Complemento" type="text" name="enderecoComplemento" />
                   
               </div>
               <div>
                   <input placeholder="CEP" type="number" name="cep">
                   <input placeholder="Telefone" type="number" name="telefone">
+              </div>
+              <div class="isAdmin">
+                <p>Você é administrador?</p>
+                <input type="radio" name="admin" value="true" /> Sim<br />
+                <input type="radio" name="admin" value="false" /> Não<br />
               </div>
               <p class="obrigatorio">* Dados obrigatórios</p>
               <div class="btn-inpt">
